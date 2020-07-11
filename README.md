@@ -7,53 +7,53 @@ xxx
 ## 2 - C# 7 Features Recap
 To appreciate what C# 8.0 has to offer developers, it is important that we revisit some of the features available in C# 7.
 
-### out variables
+* out variables
 
-### Discards
+* Discards
 
-### Tuples
+* Tuples
 
-### Pattern matching
+* Pattern matching
 
-### Local functions
+* Local functions
 
-### Expression-bodied members
+* Expression-bodied members
 
-### Generalized async return types
+* Generalized async return types
 
 ## 3 - C# 8.0 Features
 
 xxx
 
-### Default interface methods
+* Default interface methods
 
-### Nullable reference types
+* Nullable reference types
 
-### Asynchronous streams
+* Asynchronous streams
 
-### Asynchronous disposable
+* Asynchronous disposable
 
-### Indices and ranges
+* Indices and ranges
 
-### Switch expressions
+* Switch expressions
 
-### Readonly members
+* Readonly members
 
-### Using declarations
+* Using declarations
 
-### Static local functions
+* Static local functions
 
-### Disposable ref structs
+* Disposable ref structs
 
-### Null-coalescing assignment
+* Null-coalescing assignment
 
-### Unmanaged constructed types
+* Unmanaged constructed types
 
-### Stackalloc in nested expressions
+* Stackalloc in nested expressions
 
-### Enhancement of interpolated verbatim strings
+* Enhancement of interpolated verbatim strings
 
-### Enabling C# 8 in any .NET project
+* Enabling C# 8 in any .NET project
 
 
 ## 4 - The Future of C# and C# 9
@@ -62,5 +62,5 @@ xxx
 ## 5 - .NET Productivity Features in Visual Studio
 xxx
 
-### C# Language resources
+* C# Language resources
 xxx
