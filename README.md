@@ -23,7 +23,7 @@ To appreciate what C# 8.0 has to offer developers, it is important that we revis
 
 ## 3 - C# 8.0 Features
 
-xxx
+With the release of C# 8.0 developers have been given more features and enhancements to improve their codebases with. I say improve, because C# 8.0 introduces many very nice language features such as pattern matching enhancements. 
 
 * Default interface methods
 
