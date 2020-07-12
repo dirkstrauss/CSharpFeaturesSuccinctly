@@ -87,8 +87,7 @@ namespace CSharp7Features
             //var vShapes = (cylinder, sphere, pyramid);
             //Console.WriteLine(TotalObjectVolume(vShapes)); 
             #endregion
-
-            
+                        
             _ = Console.ReadLine();
         }
 
@@ -246,6 +245,23 @@ namespace CSharp7Features
         public Circle(double radius) => Radius = radius;
 
         ~Circle() => Console.WriteLine("Run cleanup statements");
-    } 
+    }
     #endregion
+
+    #region adding logic to interface breaks implementations
+    //// This introduces a breaking change in C# 7 and below versions of .NET
+    //// See C# 8 default Interface methods in CSharp8Features project
+    //public class SalesOrder : IOrder
+    //{
+    //    public void CreateOrder(DateTime orderDate) { }
+    //}
+
+    //public interface IOrder
+    //{
+    //    void CreateOrder(DateTime orderDate);
+    //    void CreateOrder();
+    //} 
+    #endregion
+
+
 }
