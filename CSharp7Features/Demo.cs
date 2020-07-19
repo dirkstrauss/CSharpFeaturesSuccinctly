@@ -92,7 +92,6 @@ namespace CSharp7Features
         }
 
 
-
         #region out variables
         private void GetNumberOfCopies(out int numCopies)
         {

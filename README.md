@@ -2,7 +2,7 @@
 Code for C# Features Succinctly
 
 ## 1 - The History of C#
-xxx
+C# is continuing to evolve and improve with each major release of the language. As the C# team is innovating and adding features to C#, they share their thought process around the design of C# with the community.
 
 ## 2 - C# 7 Features Recap
 To appreciate what C# 8.0 has to offer developers, it is important that we revisit some of the features available in C# 7.

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using static System.Console;
 
@@ -100,8 +101,32 @@ namespace CSharp8Features
             //var d = new DaysSince() { GivenDate = DateTime.Now.AddMonths(-13) };
             //WriteLine(d); 
             #endregion
-        }
 
+            #region static local functions
+            //var cylinder = new Cylinder(20, 2.5);
+            //var sphere = new Sphere(2.5);
+            //var pyramid = new Pyramid(2.5, 3, 16);
+
+            //var vShapes = (cylinder, sphere, pyramid);
+            //WriteLine(TotalObjectVolume(vShapes)); 
+            #endregion
+
+            #region disposable ref structs
+            //using var scores = new StudentScores(); 
+            #endregion
+
+            #region null-coalescing assignment
+            //List<int> lstSc = null;
+            //AddUpdateScores(lstSc); 
+            #endregion
+
+            #region unmanaged constructed types
+            //var mystruct = new MyStruct<int> { One = 1, Two = 2 };
+            //var props = mystruct.GetProps();
+
+            //var mystruct2 = new MyStruct<string> { One = "One", Two = "Two" }; 
+            #endregion
+         }
 
 
         #region nullable reference types
@@ -172,18 +197,68 @@ namespace CSharp8Features
                 Months.November => "Topaz",
                 Months.December => "Turquoise and Zircon",
                 _ => $"Did not find a birth stone for {month}",
-            }; 
+            };
         #endregion
 
+        #region using declarations
+        private void ReadFile()
+        {
+            //using (var reader = new System.IO.StreamReader("C:\\temp\\TextDocument.txt"))
+            //{
+            //    var lines = reader.ReadToEnd();
+            //}
 
+            using var reader = new System.IO.StreamReader("C:\\temp\\TextDocument.txt");
+            var lines = reader.ReadToEnd();
+        }
+        #endregion
 
+        #region static local functions
+        private double TotalObjectVolume((Cylinder c, Sphere s, Pyramid p) volumeShapes)
+        {
+            var cylinderVol = CalculateVolume(volumeShapes.c);
+            var sphereVol = CalculateVolume(volumeShapes.s);
+            var pyramidVol = CalculateVolume(volumeShapes.p);
 
+            //var rad = GetCylinderRadius();
 
+            return Math.Round(cylinderVol + sphereVol + pyramidVol, 2);
 
+            // static local functions here
+            static double CalculateVolume<T>(T volumeShape)
+            {
+                return volumeShape switch
+                {
+                    Sphere s when s.Radius == 0 => 0,
+                    Cylinder c => Math.PI * Math.Pow(c.Radius, 2) * c.Length,
+                    Sphere s => 4 * Math.PI * Math.Pow(s.Radius, 3) / 3,
+                    Pyramid p => p.BaseLength * p.BaseWidth * p.Height / 3,
+                    _ => throw new ArgumentException(message: "Unrecognized object", paramName: nameof(volumeShape)),
+                };
+            }
+
+            //static double GetCylinderRadius()
+            //{
+            //    var cylinder = volumeShapes.c; // Compiler error
+            //    return cylinder.Radius;
+            //}
+        }
+        #endregion
+
+        #region null-coalescing assignment
+        private void AddUpdateScores(List<int> lstScores)
+        {
+            //if (lstScores == null)
+            //{
+            //    lstScores = new List<int>();
+            //}
+
+            lstScores ??= new List<int>();
+
+            // Add/Update scores
+        } 
+        #endregion
     }
-
-
-
 
 
     #region default interface methods
@@ -223,7 +298,66 @@ namespace CSharp8Features
         public readonly double Number => Math.Round((DateTime.Now - GivenDate).TotalDays, 0);
 
         public readonly override string ToString() => $"Days since {GivenDate} = {Number} days";
+    }
+    #endregion
+
+    #region disposable ref structs
+    ref struct StudentScores
+    {
+        public void Dispose()
+        {
+            // perform clean up
+        }
+    }
+    #endregion
+
+    #region unmanaged constructed types
+    public struct MyStruct<T> where T : unmanaged
+    {
+        public T One;
+        public T Two;
     } 
     #endregion
+
+
+
+    #region General supporting code
+    public class Cylinder
+    {
+        public double Length { get; }
+        public double Radius { get; }
+
+        public Cylinder(double length, double radius)
+        {
+            Length = length;
+            Radius = radius;
+        }
+    }
+
+    public class Sphere
+    {
+        public double Radius { get; }
+
+        public Sphere(double radius)
+        {
+            Radius = radius;
+        }
+    }
+
+    public class Pyramid
+    {
+        public double BaseLength { get; }
+        public double BaseWidth { get; }
+        public double Height { get; }
+
+        public Pyramid(double baseLength, double baseWidth, double height)
+        {
+            BaseLength = baseLength;
+            BaseWidth = baseWidth;
+            Height = height;
+        }
+    } 
+    #endregion
+
 
 }
