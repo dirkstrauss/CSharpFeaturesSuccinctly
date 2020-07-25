@@ -57,10 +57,37 @@ With the release of C# 8.0 developers have been given more features and enhancem
 
 
 ## 4 - The Future of C# and C# 9
-xxx
+
+* Top-level programs
+
+* Relational and logical patterns
+
+* Target-typed new expressions
+
+* Init-only properties
+
+* Init accessors and readonly fields
+
+* Records
+
+* More C# 9.0 goodies
 
 ## 5 - .NET Productivity Features in Visual Studio
-xxx
+
+* Developer PowerShell inside Visual Studio
+
+* The Visual Studio Git Window
+
+* Drag and drop projects to add a reference
+
+* Searching Visual Studio
+
+* Code analyzers
+
+* File header support in .editorconfig
 
 * C# Language resources
-xxx
+  - C# language reference
+  - C# language proposals
+  - C# language design meetings
+  - C# language design

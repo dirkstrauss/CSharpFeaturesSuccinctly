@@ -9,7 +9,7 @@ namespace CSharp8Features
 {
     public class Demo
     {
-
+        
         #region switch expressions
         public enum Months
         {
@@ -128,6 +128,7 @@ namespace CSharp8Features
             #endregion
          }
 
+        
 
         #region nullable reference types
         private void ListStudents(IEnumerable<Student?> students)
@@ -356,8 +357,8 @@ namespace CSharp8Features
             BaseWidth = baseWidth;
             Height = height;
         }
-    } 
+    }
     #endregion
 
-
+        
 }
